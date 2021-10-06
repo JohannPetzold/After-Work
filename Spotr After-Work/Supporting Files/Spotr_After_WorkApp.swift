@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct Spotr_After_WorkApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

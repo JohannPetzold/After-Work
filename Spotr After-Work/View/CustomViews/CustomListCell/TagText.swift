@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TagText: View {
     
-    var tag: String
+    @Binding var tag: String
     
     private let corner: CGFloat = 10
     private let vPadding: CGFloat = 10
@@ -18,7 +18,7 @@ struct TagText: View {
     var body: some View {
         Text(tag)
             .bold()
-            .font(.footnote)
+            .font(.caption)
             .foregroundColor(Colors.primary)
             .padding(EdgeInsets(top: vPadding, leading: hPadding, bottom: vPadding, trailing: hPadding))
             .background(
@@ -32,11 +32,11 @@ struct TagText: View {
 struct TagText_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TagText(tag: "CONTEMPORARYCLASSIC")
+            TagText(tag: .constant("CONTEMPORARYCLASSIC"))
                 .previewLayout(.fixed(width: 300, height: 70))
-            TagText(tag: "FRUITY")
+            TagText(tag: .constant("FRUITY"))
                 .previewLayout(.fixed(width: 300, height: 70))
-            TagText(tag: "DARK")
+            TagText(tag: .constant("DARK"))
                 .previewLayout(.fixed(width: 300, height: 70))
         }
         

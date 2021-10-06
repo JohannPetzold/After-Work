@@ -25,7 +25,12 @@ struct ContentView: View {
             ListPickerView(selection: $pickerSelection)
                 .padding(.horizontal)
             if pickerSelection == 1 {
-                CocktailsList(cocktails: $cocktailVM.allCocktails)
+                CocktailsList(cocktails: $cocktailVM.allCocktails, pickerSelection: $pickerSelection, cocktailVM: cocktailVM)
+            } else {
+                CocktailsList(cocktails: $cocktailVM.favorites, pickerSelection: $pickerSelection, cocktailVM: cocktailVM)
+                    .onAppear {
+                        cocktailVM.loadCocktailsData()
+                    }
             }
             Spacer()
         }
@@ -36,12 +41,19 @@ struct ContentView: View {
                     displayError = true
                 }
             }
+            cocktailVM.loadCocktailsData()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 13 Pro Max"))
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+        }
+        
     }
 }

@@ -12,8 +12,8 @@ class Cocktail {
     var id: String
     var name: String
     var url: String
-    var ingredients: [String]
-    var tags: [String]
+    var ingredients: [String] = []
+    var tags: [String] = []
     var recipe: String
     
     init(id: String = "", name: String = "", url: String = "", ingredients: [String] = [], tags: [String] = [], recipe: String = "") {
@@ -32,6 +32,23 @@ class Cocktail {
         self.ingredients = cocktailJson.ingredients
         self.tags = cocktailJson.tags
         self.recipe = cocktailJson.recipe
+    }
+    
+    init(favoriteCocktail: FavoriteCocktail) {
+        self.id = favoriteCocktail.id ?? ""
+        self.name = favoriteCocktail.name ?? ""
+        self.url = favoriteCocktail.url ?? ""
+        if let favoriteIngredients = favoriteCocktail.ingredients {
+            if let newIngredients = try? JSONDecoder().decode([String].self, from: favoriteIngredients) {
+                self.ingredients = newIngredients
+            }
+        }
+        if let favoriteTags = favoriteCocktail.tags {
+            if let newTags = try? JSONDecoder().decode([String].self, from: favoriteTags) {
+                self.tags = newTags
+            }
+        }
+        self.recipe = favoriteCocktail.recipe ?? ""
     }
 }
 

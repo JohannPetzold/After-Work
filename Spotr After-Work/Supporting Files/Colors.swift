@@ -14,5 +14,4 @@ struct Colors {
     static var background = Color("Background")
     static var primary = Color("Primary")
     static var secondary = Color("Secondary")
-    static var cellShadow = Color("CellShadow")
 }

@@ -10,7 +10,7 @@ import UIKit
 
 struct CellImage: View {
     
-    var imageName: String
+    @Binding var imageName: String
     
     var body: some View {
         if let loadImage = UIImage(named: imageName) {
@@ -28,9 +28,9 @@ struct CellImage: View {
 struct CellImage_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CellImage(imageName: "Mojito")
+            CellImage(imageName: .constant("Mojito"))
                 .previewLayout(.fixed(width: 300, height: 300))
-            CellImage(imageName: "")
+            CellImage(imageName: .constant(""))
                 .previewLayout(.fixed(width: 300, height: 250))
         }
     }

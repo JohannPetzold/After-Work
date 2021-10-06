@@ -9,8 +9,12 @@ import SwiftUI
 
 struct CocktailCell: View {
     
-    var cocktail: Cocktail
+    @Binding var cocktail: Cocktail
+    @StateObject var cocktailVM: CocktailsViewModel
     @State var showIngredient: Bool = false
+    @State var showDetail: Bool = false
+    @State var isFavorite: Bool = false
+    @State var startAnimation: Bool = false
     
     private let imageHeight: CGFloat = 350
     private let initialTextHeight: CGFloat = 190
@@ -20,20 +24,39 @@ struct CocktailCell: View {
         VStack {
         ZStack(alignment: .top) {
             ZStack {
-                CellImage(imageName: cocktail.name)
+                CellImage(imageName: $cocktail.name)
                     .frame(height: imageHeight)
                     .cornerRadius(corner)
                 VStack(alignment: .trailing) {
                     HStack {
                         Spacer()
-                        RoundedButton(icon: Icon.bookmarkIcon(state: .unselected), size: .small, shadow: false)
+                        if isFavorite {
+                            RoundedButton(icon: Icon.bookmarkIcon(state: .selected), size: .small, shadow: false) {
+                                cocktailVM.deleteCocktailData(cocktail: cocktail) { success in
+                                    if success {
+                                        isFavorite = false
+                                    }
+                                }
+                            }
+                        } else {
+                            RoundedButton(icon: Icon.bookmarkIcon(state: .unselected), size: .small, shadow: false) {
+                                cocktailVM.saveCocktailData(cocktail: cocktail) { success in
+                                    if success {
+                                        isFavorite = true
+                                    }
+                                }
+                            }
+                        }
                     }
                     Spacer()
                 }
                 .padding()
             }
             .frame(height: imageHeight)
-            CellText(showIngredient: $showIngredient, cocktail: cocktail)
+            .onTapGesture {
+                showDetail.toggle()
+            }
+            CellText(showIngredient: $showIngredient, cocktail: $cocktail)
                 .padding()
                 .offset(x: 0, y: initialTextHeight)
                 .onTapGesture {
@@ -43,17 +66,30 @@ struct CocktailCell: View {
             Spacer()
         }
         .frame(height: showIngredient ? imageHeight + (CGFloat(cocktail.ingredients.count) * 20) : imageHeight)
-        .animation(.easeInOut(duration: 0.3))
         .padding()
+        .animation(startAnimation ? .easeInOut(duration: 0.3) : nil)
+        .sheet(isPresented: $showDetail, content: {
+            DetailCocktailView(cocktail: $cocktail, showDetail: $showDetail, cocktailVM: cocktailVM)
+        })
+        .onAppear {
+            cocktailVM.isCocktailInDatabase(cocktail: cocktail) { isIn in
+                if isIn {
+                    isFavorite = true
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    startAnimation = true
+                }
+            }
+        }
     }
 }
 
 struct CocktailCell_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CocktailCell(cocktail: Cocktail.previewCocktail())
+            CocktailCell(cocktail: .constant(Cocktail.previewCocktail()), cocktailVM: CocktailsViewModel())
                 .previewLayout(.fixed(width: 400, height: 400))
-            CocktailCell(cocktail: Cocktail.previewCocktail(), showIngredient: true)
+            CocktailCell(cocktail: .constant(Cocktail.previewCocktail()), cocktailVM: CocktailsViewModel(), showIngredient: true)
                 .previewLayout(.fixed(width: 400, height: 600))
         }
     }
