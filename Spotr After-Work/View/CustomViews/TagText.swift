@@ -11,20 +11,19 @@ struct TagText: View {
     
     @Binding var tag: String
     
-    private let corner: CGFloat = 10
     private let vPadding: CGFloat = 10
     private let hPadding: CGFloat = 15
     
     var body: some View {
         Text(tag)
+            .font(.custom(Font.primaryFont(), size: Font.tagSize()))
             .bold()
-            .font(.caption)
             .foregroundColor(Colors.primary)
             .padding(EdgeInsets(top: vPadding, leading: hPadding, bottom: vPadding, trailing: hPadding))
             .background(
                 Rectangle()
                     .foregroundColor(Colors.secondary)
-                    .cornerRadius(corner)
+                    .cornerRadius(Corner.tagCorner())
             )
     }
 }

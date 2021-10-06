@@ -11,10 +11,8 @@ class APIService {
     
     private var filename = "Cocktail"
     
-    enum ServiceError: Error {
-        case badUrl
-        case noData
-        case decodeFail
+    init(filename: String = "Cocktail") {
+        self.filename = filename
     }
     
     func fetchCocktails(completion: ([Cocktail]?, Error?) -> Void) {

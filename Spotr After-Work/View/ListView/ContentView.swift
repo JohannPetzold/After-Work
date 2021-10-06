@@ -9,15 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var cocktailVM = CocktailsViewModel()
+    @StateObject var cocktailsVM = CocktailsViewModel()
+    @StateObject var favoritesVM = FavoritesViewModel()
     @State var pickerSelection: Int = 1
     @State var displayError: Bool = false
+    
+    private let title = "Cocktails"
     
     var body: some View {
         VStack {
             HStack {
-                Text("Cocktails")
-                    .font(.system(size: 46))
+                Text(title)
+                    .font(.custom(Font.primaryFont(), size: Font.largeTitleSize()))
                     .bold()
                 Spacer()
             }
@@ -25,23 +28,22 @@ struct ContentView: View {
             ListPickerView(selection: $pickerSelection)
                 .padding(.horizontal)
             if pickerSelection == 1 {
-                CocktailsList(cocktails: $cocktailVM.allCocktails, pickerSelection: $pickerSelection, cocktailVM: cocktailVM)
+                CocktailsList(cocktails: $cocktailsVM.cocktails, pickerSelection: $pickerSelection, favoritesVM: favoritesVM)
             } else {
-                CocktailsList(cocktails: $cocktailVM.favorites, pickerSelection: $pickerSelection, cocktailVM: cocktailVM)
+                CocktailsList(cocktails: $favoritesVM.cocktails, pickerSelection: $pickerSelection, favoritesVM: favoritesVM)
                     .onAppear {
-                        cocktailVM.loadCocktailsData()
+                        favoritesVM.loadCocktailsData()
                     }
             }
             Spacer()
         }
         .edgesIgnoringSafeArea(.bottom)
         .onAppear {
-            cocktailVM.loadCocktails { success in
+            cocktailsVM.loadCocktails { success in
                 if !success {
                     displayError = true
                 }
             }
-            cocktailVM.loadCocktailsData()
         }
     }
 }

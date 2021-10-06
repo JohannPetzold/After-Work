@@ -13,12 +13,14 @@ struct DetailText: View {
     var details: [String] = []
     var recipe: String = ""
     
+    private let dividerHeight: CGFloat = 1
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
                 .foregroundColor(Colors.primary)
                 .bold()
-            Divider().frame(height: 2).background(Color.black)
+            Divider().frame(height: dividerHeight).background(Colors.text)
             if details.count > 0 {
                 ForEach(details, id: \.self) { detail in
                     Text(detail)

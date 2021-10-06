@@ -23,7 +23,6 @@ class CoreDataHelper {
             try context.save()
             completion(true)
         } catch {
-            print(error)
             completion(false)
         }
     }
@@ -36,7 +35,6 @@ class CoreDataHelper {
             try context.execute(deleteRequest)
             completion(true)
         } catch {
-            print(error)
             completion(false)
         }
     }

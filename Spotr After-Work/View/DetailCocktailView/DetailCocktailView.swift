@@ -6,15 +6,17 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct DetailCocktailView: View {
     
     @Binding var cocktail: Cocktail
     @Binding var showDetail: Bool
-    @StateObject var cocktailVM: CocktailsViewModel
+    @StateObject var favoritesVM: FavoritesViewModel
     
     @State var isFavorite: Bool = false
     @State var showIngredient: Bool = false
+    @State var showImage: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,17 +26,27 @@ struct DetailCocktailView: View {
                         .frame(height: geometry.size.height / 2.5)
                         .clipped()
                         .onTapGesture {
-                            showDetail.toggle()
+                            if UIImage(named: cocktail.name) != nil {
+                                showImage = true
+                            }
                         }
                     CellText(showIngredient: $showIngredient, cocktail: $cocktail, showDetail: true)
                 }
+                .disabled(showImage)
                 VStack {
+                    HStack {
+                        RoundedButton(icon: Icon.closeIcon(), size: .small, shadow: false) {
+                            showDetail.toggle()
+                        }
+                        Spacer()
+                    }
+                    .padding(EdgeInsets(top: UIDevice().hasNotch ? 50 : 15, leading: 15, bottom: 0, trailing: 0))
                     Spacer()
                     HStack {
                         Spacer()
                         if isFavorite {
                             RoundedButton(icon: Icon.bookmarkIcon(state: .selected), size: .medium, shadow: true) {
-                                cocktailVM.deleteCocktailData(cocktail: cocktail) { success in
+                                favoritesVM.deleteCocktailData(cocktail: cocktail) { success in
                                     if success {
                                         isFavorite = false
                                     }
@@ -42,7 +54,7 @@ struct DetailCocktailView: View {
                             }
                         } else {
                             RoundedButton(icon: Icon.bookmarkIcon(state: .unselected), size: .medium, shadow: true) {
-                                cocktailVM.saveCocktailData(cocktail: cocktail) { success in
+                                favoritesVM.saveCocktailData(cocktail: cocktail) { success in
                                     if success {
                                         isFavorite = true
                                     }
@@ -55,14 +67,21 @@ struct DetailCocktailView: View {
                             }
                         }
                     }
+                    .disabled(showImage)
                     .padding(.horizontal)
                     .offset(x: 0, y: 50 / 2)
                 }
+                .disabled(showImage)
                 .frame(height: geometry.size.height / 2.5)
+                if showImage {
+                    ShowImageView(cocktail: $cocktail, showImage: $showImage)
+                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.4)))
+                        .zIndex(1)
+                }
             }
             .edgesIgnoringSafeArea(.top)
             .onAppear {
-                cocktailVM.isCocktailInDatabase(cocktail: cocktail) { isIn in
+                favoritesVM.isCocktailInDatabase(cocktail: cocktail) { isIn in
                     if isIn {
                         isFavorite = true
                     }
@@ -75,10 +94,12 @@ struct DetailCocktailView: View {
 struct DetailCocktailView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            DetailCocktailView(cocktail: .constant(Cocktail.previewCocktail()), showDetail: .constant(true), cocktailVM: CocktailsViewModel())
+            DetailCocktailView(cocktail: .constant(Cocktail.previewCocktail()), showDetail: .constant(true), favoritesVM: FavoritesViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone 13 Pro Max"))
-            DetailCocktailView(cocktail: .constant(Cocktail.previewCocktail()), showDetail: .constant(true), cocktailVM: CocktailsViewModel())
+            DetailCocktailView(cocktail: .constant(Cocktail.previewCocktail()), showDetail: .constant(true), favoritesVM: FavoritesViewModel())
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
+            DetailCocktailView(cocktail: .constant(Cocktail.previewCocktail()), showDetail: .constant(true), favoritesVM: FavoritesViewModel(), showImage: true)
+                .previewDevice(PreviewDevice(rawValue: "iPhone 13 Pro Max"))
         }
     }
 }

@@ -14,18 +14,20 @@ struct CellText: View {
     
     var showDetail: Bool = false
     
-    private let corner: CGFloat = 15
-    private let shadowRadius: CGFloat = 8
+    private let shadowRadius: CGFloat = 5
     private let shadowYOffset: CGFloat = 6
-    private let vPadding: CGFloat = 20
+    private let shadowOpacity: CGFloat = 0.3
+    private let vPadding: CGFloat = 19
     private let hPadding: CGFloat = 20
     private let paddingDetail: CGFloat = 30
+    private let ingredientsTitle = "INGREDIENTS"
+    private let instructionsTitle = "INSTRUCTIONS"
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
                 Text(cocktail.name)
-                    .font(.title)
+                    .font(.custom(Font.primaryFont(), size: Font.detailSize()))
                     .minimumScaleFactor(0.7)
                     .foregroundColor(Colors.text)
                 Spacer()
@@ -40,20 +42,20 @@ struct CellText: View {
                 }
                 .padding(.bottom, showDetail ? paddingDetail : 0)
             } else if showIngredient {
-                DetailText(title: "INGREDIENTS", details: cocktail.ingredients)
+                DetailText(title: ingredientsTitle, details: cocktail.ingredients)
             }
             if showDetail {
                 ScrollView(.vertical, showsIndicators: false) {
-                    DetailText(title: "INGREDIENTS", details: cocktail.ingredients)
+                    DetailText(title: ingredientsTitle, details: cocktail.ingredients)
                         .padding(.bottom, paddingDetail)
-                    DetailText(title: "INSTRUCTIONS", recipe: cocktail.recipe)
+                    DetailText(title: instructionsTitle, recipe: cocktail.recipe)
                 }
             }
         }
         .padding(EdgeInsets(top: vPadding, leading: hPadding, bottom: vPadding, trailing: hPadding))
         .background(Colors.background)
-        .cornerRadius(showDetail ? 0 : corner)
-        .shadow(color: Color.black.opacity(0.5), radius: showIngredient ? shadowRadius : 0, x: 0, y: showIngredient ? shadowYOffset : 0)
+        .cornerRadius(showDetail ? 0 : Corner.defaultCorner())
+        .shadow(color: Color.black.opacity(shadowOpacity), radius: showIngredient ? shadowRadius : 0, x: 0, y: showIngredient ? shadowYOffset : 0)
     }
 }
 

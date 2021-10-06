@@ -10,6 +10,7 @@ import Foundation
 struct Icon {
 
     private static var linkIconStr = "globe"
+    private static var closeIconStr = "xmark.circle"
     
     enum BookmarkState: String {
         case selected = "bookmark.fill"
@@ -22,5 +23,9 @@ struct Icon {
     
     static func linkIcon() -> String {
         return Icon.linkIconStr
+    }
+    
+    static func closeIcon() -> String {
+        return Icon.closeIconStr
     }
 }
