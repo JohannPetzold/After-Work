@@ -20,7 +20,7 @@ struct ContentView: View {
         VStack {
             HStack {
                 Text(title)
-                    .font(.custom(Font.primaryFont(), size: Font.largeTitleSize()))
+                    .font(.custom(Font.blackFont(), size: Font.largeTitleSize()))
                     .bold()
                 Spacer()
             }

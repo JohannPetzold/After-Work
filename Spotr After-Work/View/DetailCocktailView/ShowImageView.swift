@@ -14,7 +14,7 @@ struct ShowImageView: View {
     
     var body: some View {
             ZStack(alignment: .top) {
-                Rectangle().foregroundColor(.black).opacity(0.8)
+                Rectangle().foregroundColor(.black).opacity(Opacity.backgroundOpacity())
                     .edgesIgnoringSafeArea(.all)
                 VStack {
                     Spacer()

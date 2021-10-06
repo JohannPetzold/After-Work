@@ -16,13 +16,13 @@ struct TagText: View {
     
     var body: some View {
         Text(tag)
-            .font(.custom(Font.primaryFont(), size: Font.tagSize()))
+            .font(.custom(Font.boldFont(), size: Font.tagSize()))
             .bold()
             .foregroundColor(Colors.primary)
             .padding(EdgeInsets(top: vPadding, leading: hPadding, bottom: vPadding, trailing: hPadding))
             .background(
                 Rectangle()
-                    .foregroundColor(Colors.secondary)
+                    .foregroundColor(Colors.primary.opacity(Opacity.tagOpacity()))
                     .cornerRadius(Corner.tagCorner())
             )
     }

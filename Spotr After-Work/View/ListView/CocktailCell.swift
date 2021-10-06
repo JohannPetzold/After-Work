@@ -17,52 +17,56 @@ struct CocktailCell: View {
     @State var isFavorite: Bool = false
     @State var startAnimation: Bool = false
     
-    private let imageHeight: CGFloat = 350
-    private let initialTextHeight: CGFloat = 190
+    private let imageHeight: CGFloat = 359
+    private let initialTextHeight: CGFloat = 199
     
     var body: some View {
         VStack {
-        ZStack(alignment: .top) {
-            ZStack {
-                CellImage(imageName: $cocktail.name)
-                    .frame(height: imageHeight)
-                    .cornerRadius(Corner.defaultCorner())
-                VStack(alignment: .trailing) {
-                    HStack {
-                        Spacer()
-                        if isFavorite {
-                            RoundedButton(icon: Icon.bookmarkIcon(state: .selected), size: .small, shadow: false) {
-                                favoritesVM.deleteCocktailData(cocktail: cocktail) { success in
-                                    if success {
-                                        isFavorite = false
+            ZStack(alignment: .top) {
+                ZStack {
+                    CellImage(imageName: $cocktail.name)
+                        .frame(height: imageHeight)
+                        .cornerRadius(Corner.defaultCorner())
+                    VStack(alignment: .trailing) {
+                        HStack {
+                            Spacer()
+                            if isFavorite {
+                                RoundedButton(icon: .bookmarkSelected, size: .small, shadow: false) {
+                                    favoritesVM.deleteCocktailData(cocktail: cocktail) { success in
+                                        if success {
+                                            isFavorite = false
+                                        }
                                     }
                                 }
-                            }
-                        } else {
-                            RoundedButton(icon: Icon.bookmarkIcon(state: .unselected), size: .small, shadow: false) {
-                                favoritesVM.saveCocktailData(cocktail: cocktail) { success in
-                                    if success {
-                                        isFavorite = true
+                            } else {
+                                RoundedButton(icon: .bookmarkUnselected, size: .small, shadow: false) {
+                                    favoritesVM.saveCocktailData(cocktail: cocktail) { success in
+                                        if success {
+                                            isFavorite = true
+                                        }
                                     }
                                 }
                             }
                         }
+                        Spacer()
                     }
-                    Spacer()
+                    .padding()
                 }
-                .padding()
-            }
-            .frame(height: imageHeight)
-            .onTapGesture {
-                showDetail.toggle()
-            }
-            CellText(showIngredient: $showIngredient, cocktail: $cocktail)
-                .padding()
-                .offset(x: 0, y: initialTextHeight)
+                .frame(height: imageHeight)
                 .onTapGesture {
-                    showIngredient.toggle()
+                    showDetail.toggle()
                 }
-        }
+                VStack {
+                    Spacer()
+                    CellText(showIngredient: $showIngredient, cocktail: $cocktail)
+                        .padding(20)
+                        .offset(x: 0, y: showIngredient ? (CGFloat(cocktail.ingredients.count) * 5) : 0)
+                        .onTapGesture {
+                            showIngredient.toggle()
+                        }
+                }
+                
+            }
             Spacer()
         }
         .frame(height: showIngredient ? imageHeight + (CGFloat(cocktail.ingredients.count) * 20) : imageHeight)

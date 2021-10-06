@@ -6,26 +6,52 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct Icon {
-
-    private static var linkIconStr = "globe"
-    private static var closeIconStr = "xmark.circle"
     
-    enum BookmarkState: String {
-        case selected = "bookmark.fill"
-        case unselected = "bookmark"
+    enum IconName: String {
+        case link = "globe"
+        case close = "xmark.circle"
+        case bookmarkSelected = "bookmark.fill"
+        case bookmarkUnselected = "bookmark"
+        
+        func iconWidth() -> CGFloat {
+            switch self {
+            case .link:
+                return 20
+            case .close:
+                return 20
+            case .bookmarkSelected:
+                return 14
+            case .bookmarkUnselected:
+                return 14
+            }
+        }
+        
+        func iconHeight() -> CGFloat {
+            switch self {
+            case .link:
+                return 20
+            case .close:
+                return 20
+            case .bookmarkSelected:
+                return 18.65
+            case .bookmarkUnselected:
+                return 18.65
+            }
+        }
     }
     
-    static func bookmarkIcon(state: BookmarkState) -> String {
+    static func bookmarkIcon(state: IconName) -> String {
         return state.rawValue
     }
     
     static func linkIcon() -> String {
-        return Icon.linkIconStr
+        return IconName.link.rawValue
     }
     
     static func closeIcon() -> String {
-        return Icon.closeIconStr
+        return IconName.close.rawValue
     }
 }

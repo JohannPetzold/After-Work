@@ -10,8 +10,8 @@ import SwiftUI
 
 struct Corner {
     
-    private static var defaultCornerValue: CGFloat = 15
-    private static var tagCornerValue: CGFloat = 7
+    private static let defaultCornerValue: CGFloat = 15
+    private static let tagCornerValue: CGFloat = 7
     
     static func defaultCorner() -> CGFloat {
         return defaultCornerValue

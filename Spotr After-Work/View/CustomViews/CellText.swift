@@ -14,24 +14,24 @@ struct CellText: View {
     
     var showDetail: Bool = false
     
-    private let shadowRadius: CGFloat = 5
-    private let shadowYOffset: CGFloat = 6
-    private let shadowOpacity: CGFloat = 0.3
-    private let vPadding: CGFloat = 19
+    private let shadowRadius: CGFloat = 10
+    private let shadowYOffset: CGFloat = 5
+    private let vPadding: CGFloat = 20
     private let hPadding: CGFloat = 20
-    private let paddingDetail: CGFloat = 30
+    private let paddingDetail: CGFloat = 20
     private let ingredientsTitle = "INGREDIENTS"
     private let instructionsTitle = "INSTRUCTIONS"
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading) {
             HStack {
                 Text(cocktail.name)
-                    .font(.custom(Font.primaryFont(), size: Font.detailSize()))
+                    .font(.custom(Font.mediumFont(), size: Font.titleSize()))
                     .minimumScaleFactor(0.7)
                     .foregroundColor(Colors.text)
                 Spacer()
             }
+            .padding(.bottom, 10)
             if !showIngredient || showDetail {
                 ScrollView(.horizontal) {
                     HStack {
@@ -53,9 +53,9 @@ struct CellText: View {
             }
         }
         .padding(EdgeInsets(top: vPadding, leading: hPadding, bottom: vPadding, trailing: hPadding))
-        .background(Colors.background)
+        .background(Color.white)
         .cornerRadius(showDetail ? 0 : Corner.defaultCorner())
-        .shadow(color: Color.black.opacity(shadowOpacity), radius: showIngredient ? shadowRadius : 0, x: 0, y: showIngredient ? shadowYOffset : 0)
+        .shadow(color: Colors.text.opacity(Opacity.shadowOpacity()), radius: showDetail ? 0 : shadowRadius, x: 0, y: showDetail ? 0 : shadowYOffset)
     }
 }
 
@@ -75,11 +75,11 @@ struct CellText_Previews: PreviewProvider {
             }
             .previewLayout(.fixed(width: 480, height: 400))
             ZStack {
-                Rectangle().foregroundColor(.blue).frame(width: 450, height: 400)
+                Rectangle().foregroundColor(.blue).frame(width: 500, height: 600)
                 CellText(showIngredient: .constant(false), cocktail: .constant(Cocktail.previewCocktail()), showDetail: true)
                     .padding(.horizontal, 30)
             }
-            .previewLayout(.fixed(width: 480, height: 500))
+            .previewLayout(.fixed(width: 500, height: 600))
         }
     }
 }

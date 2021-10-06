@@ -28,17 +28,17 @@ struct CocktailsList: View {
                 Spacer()
                 if pickerSelection == 1 {
                     Text("No Cocktail Found")
-                        .font(.custom(Font.primaryFont(), size: Font.titleSize()))
+                        .font(.custom(Font.boldFont(), size: Font.titleSize()))
                         .foregroundColor(Colors.text)
                 } else if pickerSelection == 2 {
                     VStack {
                         Text("No Favorite Cocktail")
-                            .font(.custom(Font.primaryFont(), size: Font.titleSize()))
+                            .font(.custom(Font.boldFont(), size: Font.titleSize()))
                             .foregroundColor(Colors.text)
                             .padding(.bottom, 20)
                         Text("Add cocktail to favorites using")
-                            .font(.custom(Font.primaryFont(), size: Font.subtitleSize()))
-                        RoundedButton(icon: Icon.bookmarkIcon(state: .unselected), size: .medium, shadow: true, action:  { })
+                            .font(.custom(Font.regularFont(), size: Font.subtitleSize()))
+                        RoundedButton(icon: .bookmarkUnselected, size: .medium, shadow: true, action:  { })
                     }
                 }
                 Spacer()

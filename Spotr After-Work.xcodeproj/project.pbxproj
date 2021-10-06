@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40120AB4270E10AA00539BA2 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40120AB3270E10AA00539BA2 /* Roboto-Black.ttf */; };
+		40120AB6270E10B600539BA2 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40120AB5270E10B600539BA2 /* Roboto-Regular.ttf */; };
+		40120AB8270E10BD00539BA2 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40120AB7270E10BD00539BA2 /* Roboto-Bold.ttf */; };
+		40120ABA270E10C600539BA2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40120AB9270E10C600539BA2 /* Roboto-Medium.ttf */; };
+		40120ABD270E124800539BA2 /* Opacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40120ABC270E124800539BA2 /* Opacity.swift */; };
 		4028320F270DE044003F9AF8 /* ExtensionUIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4028320E270DE044003F9AF8 /* ExtensionUIDevice.swift */; };
 		40283212270DE4F4003F9AF8 /* ShowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40283211270DE4F4003F9AF8 /* ShowImageView.swift */; };
 		40283213270DEDE9003F9AF8 /* Cocktail.json in Resources */ = {isa = PBXBuildFile; fileRef = 406CFCB6270C44F900D1BD07 /* Cocktail.json */; };
@@ -65,6 +70,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40120AB3270E10AA00539BA2 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		40120AB5270E10B600539BA2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		40120AB7270E10BD00539BA2 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		40120AB9270E10C600539BA2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		40120ABB270E10F300539BA2 /* Spotr-After-Work-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Spotr-After-Work-Info.plist"; path = "Spotr After-Work/Supporting Files/Spotr-After-Work-Info.plist"; sourceTree = SOURCE_ROOT; };
+		40120ABC270E124800539BA2 /* Opacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opacity.swift; sourceTree = "<group>"; };
 		4028320E270DE044003F9AF8 /* ExtensionUIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIDevice.swift; sourceTree = "<group>"; };
 		40283211270DE4F4003F9AF8 /* ShowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageView.swift; sourceTree = "<group>"; };
 		40283214270DEE02003F9AF8 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
@@ -147,6 +158,7 @@
 				406CFCB7270C454F00D1BD07 /* Icon.swift */,
 				406CFCBC270C502700D1BD07 /* Colors.swift */,
 				40283225270E050D003F9AF8 /* Corner.swift */,
+				40120ABC270E124800539BA2 /* Opacity.swift */,
 				4028320E270DE044003F9AF8 /* ExtensionUIDevice.swift */,
 			);
 			path = Utils;
@@ -172,6 +184,17 @@
 				40B10376270CD57500A95D50 /* Persistence.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		40120AB2270E109D00539BA2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				40120AB3270E10AA00539BA2 /* Roboto-Black.ttf */,
+				40120AB5270E10B600539BA2 /* Roboto-Regular.ttf */,
+				40120AB7270E10BD00539BA2 /* Roboto-Bold.ttf */,
+				40120AB9270E10C600539BA2 /* Roboto-Medium.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		40283218270DF02C003F9AF8 /* Utils */ = {
@@ -265,8 +288,10 @@
 		406CFCB0270C43C300D1BD07 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				40120AB2270E109D00539BA2 /* Fonts */,
 				406CFC86270C43A700D1BD07 /* Spotr_After_WorkApp.swift */,
 				406CFC8A270C43A800D1BD07 /* Assets.xcassets */,
+				40120ABB270E10F300539BA2 /* Spotr-After-Work-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -416,8 +441,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40120ABA270E10C600539BA2 /* Roboto-Medium.ttf in Resources */,
+				40120AB8270E10BD00539BA2 /* Roboto-Bold.ttf in Resources */,
+				40120AB6270E10B600539BA2 /* Roboto-Regular.ttf in Resources */,
 				406CFCBB270C4D6C00D1BD07 /* Cocktail.json in Resources */,
 				4028321B270DF09C003F9AF8 /* Empty.json in Resources */,
+				40120AB4270E10AA00539BA2 /* Roboto-Black.ttf in Resources */,
 				406CFC8E270C43A800D1BD07 /* Preview Assets.xcassets in Resources */,
 				406CFC8B270C43A800D1BD07 /* Assets.xcassets in Resources */,
 			);
@@ -463,6 +492,7 @@
 				406CFCC2270C54CD00D1BD07 /* RoundedButton.swift in Sources */,
 				406CFCBA270C4A2900D1BD07 /* APIService.swift in Sources */,
 				40B1037E270CD73100A95D50 /* FavoriteCocktail.swift in Sources */,
+				40120ABD270E124800539BA2 /* Opacity.swift in Sources */,
 				406CFC87270C43A700D1BD07 /* Spotr_After_WorkApp.swift in Sources */,
 				40B1033A270CBF9E00A95D50 /* CocktailsList.swift in Sources */,
 				40283226270E050D003F9AF8 /* Corner.swift in Sources */,
@@ -638,6 +668,7 @@
 				DEVELOPMENT_TEAM = 99934KCD3X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Spotr After-Work/Supporting Files/Spotr-After-Work-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -669,6 +700,7 @@
 				DEVELOPMENT_TEAM = 99934KCD3X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Spotr After-Work/Supporting Files/Spotr-After-Work-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

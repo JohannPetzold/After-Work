@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RoundedButton: View {
     
-    var icon: String
+    var icon: Icon.IconName
     var size: ButtonSize
     var shadow: Bool
     var action: () -> Void
@@ -27,17 +27,16 @@ struct RoundedButton: View {
         Button(action: action) {
             ZStack {
                 Rectangle()
-                    .foregroundColor(Colors.background)
-                Image(systemName: icon)
+                    .foregroundColor(Color.white)
+                Image(systemName: icon.rawValue)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
                     .foregroundColor(Colors.primary)
-                    .frame(width: size.rawValue/2, height: size.rawValue/2)
+                    .frame(width: icon.iconWidth(), height: icon.iconHeight())
             }
         }
         .frame(width: size.rawValue, height: size.rawValue)
         .cornerRadius(size.rawValue/2)
-        .shadow(color: Colors.primary.opacity(0.3), radius: shadow ? shadowRadius : 0, x: 0, y: shadow ? shadowYOffset : 0)
+        .shadow(color: Colors.primary.opacity(Opacity.shadowButtonOpacity()), radius: shadow ? shadowRadius : 0, x: 0, y: shadow ? shadowYOffset : 0)
     }
 }
 
@@ -46,22 +45,22 @@ struct RoundedButton_Previews: PreviewProvider {
         Group {
             ZStack {
                 Color.yellow
-                RoundedButton(icon: Icon.linkIcon(), size: .small, shadow: false, action: { })
+                RoundedButton(icon: .link, size: .small, shadow: false, action: { })
             }
             .previewLayout(.fixed(width: 100, height: 100))
             ZStack {
                 Color.yellow
-                RoundedButton(icon: Icon.linkIcon(), size: .medium, shadow: true, action: { })
+                RoundedButton(icon: .link, size: .medium, shadow: true, action: { })
             }
             .previewLayout(.fixed(width: 100, height: 100))
             ZStack {
                 Color.yellow
-                RoundedButton(icon: Icon.bookmarkIcon(state: .selected), size: .medium, shadow: true, action: { })
+                RoundedButton(icon: .bookmarkSelected, size: .medium, shadow: true, action: { })
             }
             .previewLayout(.fixed(width: 100, height: 100))
             ZStack {
                 Color.yellow
-                RoundedButton(icon: Icon.bookmarkIcon(state: .unselected), size: .small, shadow: false, action: { })
+                RoundedButton(icon: .bookmarkUnselected, size: .small, shadow: false, action: { })
             }
             .previewLayout(.fixed(width: 100, height: 100))
         }

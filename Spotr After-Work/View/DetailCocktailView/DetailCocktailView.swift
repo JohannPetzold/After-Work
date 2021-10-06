@@ -35,7 +35,7 @@ struct DetailCocktailView: View {
                 .disabled(showImage)
                 VStack {
                     HStack {
-                        RoundedButton(icon: Icon.closeIcon(), size: .small, shadow: false) {
+                        RoundedButton(icon: .close, size: .small, shadow: false) {
                             showDetail.toggle()
                         }
                         Spacer()
@@ -45,7 +45,7 @@ struct DetailCocktailView: View {
                     HStack {
                         Spacer()
                         if isFavorite {
-                            RoundedButton(icon: Icon.bookmarkIcon(state: .selected), size: .medium, shadow: true) {
+                            RoundedButton(icon: .bookmarkSelected, size: .medium, shadow: true) {
                                 favoritesVM.deleteCocktailData(cocktail: cocktail) { success in
                                     if success {
                                         isFavorite = false
@@ -53,7 +53,7 @@ struct DetailCocktailView: View {
                                 }
                             }
                         } else {
-                            RoundedButton(icon: Icon.bookmarkIcon(state: .unselected), size: .medium, shadow: true) {
+                            RoundedButton(icon: .bookmarkUnselected, size: .medium, shadow: true) {
                                 favoritesVM.saveCocktailData(cocktail: cocktail) { success in
                                     if success {
                                         isFavorite = true
@@ -61,7 +61,7 @@ struct DetailCocktailView: View {
                                 }
                             }
                         }
-                        RoundedButton(icon: Icon.linkIcon(), size: .medium, shadow: true) {
+                        RoundedButton(icon: .link, size: .medium, shadow: true) {
                             if let url = URL(string: cocktail.url) {
                                 UIApplication.shared.open(url)
                             }
