@@ -18,9 +18,9 @@ struct DetailText: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(title)
-                .foregroundColor(Colors.primary)
+                .foregroundColor(Colors.secondary)
                 .bold()
-            Divider().frame(height: dividerHeight).background(Colors.text)
+            Divider().frame(height: dividerHeight).background(Colors.primary)
             if details.count > 0 {
                 ForEach(details, id: \.self) { detail in
                     Text(detail)

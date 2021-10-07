@@ -15,6 +15,7 @@ class APIService {
         self.filename = filename
     }
     
+    // Get cocktails from JSON file
     func fetchCocktails(completion: ([Cocktail]?, Error?) -> Void) {
         let bundle = Bundle(for: APIService.self)
         guard let url = bundle.url(forResource: filename, withExtension: "json") else {
@@ -40,4 +41,10 @@ class APIService {
         }
         return cocktails
     }
+}
+
+enum ServiceError: Error {
+    case badUrl
+    case noData
+    case decodeFail
 }

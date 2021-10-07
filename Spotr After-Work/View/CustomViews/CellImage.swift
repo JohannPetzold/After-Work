@@ -14,10 +14,12 @@ struct CellImage: View {
     
     var body: some View {
         if let loadImage = UIImage(named: imageName) {
-            Image(uiImage: loadImage)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .clipped()
+            GeometryReader { geometry in
+                Image(uiImage: loadImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipped()
+            }
         } else {
             Rectangle()
                 .foregroundColor(.gray)

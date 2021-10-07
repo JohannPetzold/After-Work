@@ -6,10 +6,16 @@
 //
 
 import Foundation
+import SwiftUI
 
 class FavoritesViewModel: ObservableObject {
     
     @Published var cocktails = [Cocktail]()
+    
+    // Not the appropriate place to store those properties
+    @Published var detailCocktail = Cocktail()
+    @Published var displayDetail: Bool = false
+    @Published var animationId: String = ""
     
     private let coreDataHelper = CoreDataHelper(context: PersistenceController.viewContext)
     
@@ -39,5 +45,11 @@ class FavoritesViewModel: ObservableObject {
         coreDataHelper.getAllCocktails { cocktails in
             self.cocktails = cocktails
         }
+    }
+    
+    // Not the appropriate place to store this method
+    func resetDetail() {
+        detailCocktail = Cocktail()
+        animationId = ""
     }
 }

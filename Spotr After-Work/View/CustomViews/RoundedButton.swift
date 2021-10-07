@@ -12,6 +12,7 @@ struct RoundedButton: View {
     var icon: Icon.IconName
     var size: ButtonSize
     var shadow: Bool
+    var largerTouch: CGFloat = 1.0
     var action: () -> Void
     
     private let shadowRadius: CGFloat = 2
@@ -26,17 +27,24 @@ struct RoundedButton: View {
     var body: some View {
         Button(action: action) {
             ZStack {
-                Rectangle()
-                    .foregroundColor(Color.white)
-                Image(systemName: icon.rawValue)
-                    .resizable()
-                    .foregroundColor(Colors.primary)
-                    .frame(width: icon.iconWidth(), height: icon.iconHeight())
+                if largerTouch != 1.0 {
+                    Rectangle().opacity(0)
+                        .cornerRadius(size.rawValue * largerTouch / 2)
+                }
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(Color.white)
+                    Image(systemName: icon.rawValue)
+                        .resizable()
+                        .foregroundColor(Colors.secondary)
+                        .frame(width: icon.iconWidth(), height: icon.iconHeight())
+                }
+                .frame(width: size.rawValue, height: size.rawValue)
+                .cornerRadius(size.rawValue / 2)
             }
         }
-        .frame(width: size.rawValue, height: size.rawValue)
-        .cornerRadius(size.rawValue/2)
-        .shadow(color: Colors.primary.opacity(Opacity.shadowButtonOpacity()), radius: shadow ? shadowRadius : 0, x: 0, y: shadow ? shadowYOffset : 0)
+        .frame(width: size.rawValue * largerTouch, height: size.rawValue * largerTouch)
+        .shadow(color: Colors.secondary.opacity(Opacity.shadowButtonOpacity()), radius: shadow ? shadowRadius : 0, x: 0, y: shadow ? shadowYOffset : 0)
     }
 }
 
@@ -63,6 +71,16 @@ struct RoundedButton_Previews: PreviewProvider {
                 RoundedButton(icon: .bookmarkUnselected, size: .small, shadow: false, action: { })
             }
             .previewLayout(.fixed(width: 100, height: 100))
+            ZStack {
+                Color.yellow
+                RoundedButton(icon: .close, size: .small, shadow: false, largerTouch: 2, action: { })
+            }
+            .previewLayout(.fixed(width: 100, height: 100))
+            ZStack {
+                Color.yellow
+                RoundedButton(icon: .close, size: .medium, shadow: true, largerTouch: 2, action: { })
+            }
+            .previewLayout(.fixed(width: 150, height: 150))
         }
     }
 }

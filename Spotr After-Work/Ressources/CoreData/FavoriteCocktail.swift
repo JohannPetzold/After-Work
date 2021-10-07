@@ -10,6 +10,7 @@ import CoreData
 
 class FavoriteCocktail: NSManagedObject {
     
+    // Init with Cocktail data
     func initFromCocktail(cocktail: Cocktail) {
         self.id = cocktail.id
         self.name = cocktail.name

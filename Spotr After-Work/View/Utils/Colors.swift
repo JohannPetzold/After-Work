@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Colors {
     
-    static let text = Color(red: 0.176, green: 0.149, blue: 0.294)
+    static let primary = Color(red: 0.176, green: 0.149, blue: 0.294)
+    static let secondary = Color(red: 0.482, green: 0.38, blue: 1)
     static let background = Color(red: 0.898, green: 0.898, blue: 0.898)
-    static let primary = Color(red: 0.482, green: 0.38, blue: 1)
 }

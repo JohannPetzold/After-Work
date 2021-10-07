@@ -16,6 +16,7 @@ class CoreDataHelper {
         self.context = context
     }
     
+    // Save cocktail into CoreData
     func saveCocktail(cocktail: Cocktail, completion: (_ success: Bool) -> Void){
         let favorite = FavoriteCocktail(context: context)
         favorite.initFromCocktail(cocktail: cocktail)
@@ -27,6 +28,7 @@ class CoreDataHelper {
         }
     }
     
+    // Delete cocktail from CoreData with Predicate
     func deleteCocktail(cocktail: Cocktail, completion: (_ success: Bool) -> Void){
         let request: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "FavoriteCocktail")
         request.predicate = NSPredicate(format: "id == %@", cocktail.id)
@@ -39,6 +41,7 @@ class CoreDataHelper {
         }
     }
     
+    // Check if cocktail is in CoreData
     func isInDatabase(cocktail: Cocktail, completion: (_ result: Bool) -> Void) {
         let request: NSFetchRequest<FavoriteCocktail> = FavoriteCocktail.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", cocktail.id)
@@ -53,6 +56,7 @@ class CoreDataHelper {
         }
     }
     
+    // Get all cocktails stored in CoreData
     func getAllCocktails(completion: (_ cocktails: [Cocktail]) -> Void) {
         let request: NSFetchRequest<FavoriteCocktail> = FavoriteCocktail.fetchRequest()
         guard let favorites = try? context.fetch(request) else {

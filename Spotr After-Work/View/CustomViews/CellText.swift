@@ -27,9 +27,14 @@ struct CellText: View {
             HStack {
                 Text(cocktail.name)
                     .font(.custom(Font.mediumFont(), size: Font.titleSize()))
-                    .minimumScaleFactor(0.7)
-                    .foregroundColor(Colors.text)
+                    .minimumScaleFactor(0.5)
+                    .foregroundColor(Colors.primary)
                 Spacer()
+                if !showDetail {
+                    Image(systemName: showIngredient ? Icon.getIconName(.chevronUp) : Icon.getIconName(.chevronDown))
+                        .frame(width: Icon.IconName.chevronDown.iconWidth(), height: Icon.IconName.chevronDown.iconHeight())
+                        .foregroundColor(Colors.secondary)
+                }
             }
             .padding(.bottom, 10)
             if !showIngredient || showDetail {
@@ -55,7 +60,7 @@ struct CellText: View {
         .padding(EdgeInsets(top: vPadding, leading: hPadding, bottom: vPadding, trailing: hPadding))
         .background(Color.white)
         .cornerRadius(showDetail ? 0 : Corner.defaultCorner())
-        .shadow(color: Colors.text.opacity(Opacity.shadowOpacity()), radius: showDetail ? 0 : shadowRadius, x: 0, y: showDetail ? 0 : shadowYOffset)
+        .shadow(color: Colors.primary.opacity(Opacity.shadowOpacity()), radius: showDetail ? 0 : shadowRadius, x: 0, y: showDetail ? 0 : shadowYOffset)
     }
 }
 

@@ -25,6 +25,7 @@ class Cocktail {
         self.recipe = recipe
     }
     
+    // Init from JSON
     init(cocktailJson: CocktailJSON) {
         self.id = cocktailJson.id
         self.name = cocktailJson.name
@@ -34,6 +35,7 @@ class Cocktail {
         self.recipe = cocktailJson.recipe
     }
     
+    // Init from CoreData
     init(favoriteCocktail: FavoriteCocktail) {
         self.id = favoriteCocktail.id ?? ""
         self.name = favoriteCocktail.name ?? ""
@@ -53,6 +55,7 @@ class Cocktail {
 }
 
 extension Cocktail {
+    
     static func previewCocktail() -> Cocktail {
         let cocktail = Cocktail(
             id: "11000",

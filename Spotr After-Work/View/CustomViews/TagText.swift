@@ -18,11 +18,11 @@ struct TagText: View {
         Text(tag)
             .font(.custom(Font.boldFont(), size: Font.tagSize()))
             .bold()
-            .foregroundColor(Colors.primary)
+            .foregroundColor(Colors.secondary)
             .padding(EdgeInsets(top: vPadding, leading: hPadding, bottom: vPadding, trailing: hPadding))
             .background(
                 Rectangle()
-                    .foregroundColor(Colors.primary.opacity(Opacity.tagOpacity()))
+                    .foregroundColor(Colors.secondary.opacity(Opacity.tagOpacity()))
                     .cornerRadius(Corner.tagCorner())
             )
     }

@@ -15,6 +15,9 @@ struct Icon {
         case close = "xmark.circle"
         case bookmarkSelected = "bookmark.fill"
         case bookmarkUnselected = "bookmark"
+        case send = "square.and.arrow.up"
+        case chevronDown = "chevron.down"
+        case chevronUp = "chevron.up"
         
         func iconWidth() -> CGFloat {
             switch self {
@@ -22,10 +25,12 @@ struct Icon {
                 return 20
             case .close:
                 return 20
-            case .bookmarkSelected:
+            case .bookmarkSelected, .bookmarkUnselected:
                 return 14
-            case .bookmarkUnselected:
-                return 14
+            case .send:
+                return 15
+            case .chevronDown, .chevronUp:
+                return 15
             }
         }
         
@@ -35,23 +40,17 @@ struct Icon {
                 return 20
             case .close:
                 return 20
-            case .bookmarkSelected:
+            case .bookmarkSelected, .bookmarkUnselected:
                 return 18.65
-            case .bookmarkUnselected:
-                return 18.65
+            case .send:
+                return 20
+            case .chevronDown, .chevronUp:
+                return 15
             }
         }
     }
     
-    static func bookmarkIcon(state: IconName) -> String {
-        return state.rawValue
-    }
-    
-    static func linkIcon() -> String {
-        return IconName.link.rawValue
-    }
-    
-    static func closeIcon() -> String {
-        return IconName.close.rawValue
+    static func getIconName(_ iconName: IconName) -> String {
+        return iconName.rawValue
     }
 }

@@ -21,7 +21,6 @@ struct ShowImageView: View {
                     CellImage(imageName: $cocktail.name)
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(Corner.defaultCorner())
-                        .animation(.easeInOut(duration: 1))
                     Spacer()
                 }
                 .padding(.horizontal, 10)
