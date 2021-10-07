@@ -46,7 +46,6 @@ struct CocktailsList: View {
                 }
                 Spacer()
             }
-            .transition(Transitions.showCell())
         }
     }
 }

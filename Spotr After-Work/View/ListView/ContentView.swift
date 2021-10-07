@@ -67,8 +67,6 @@ struct ContentView_Previews: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
             ContentView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
-            ContentView(pickerSelection: 2)
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
         }
         
     }
