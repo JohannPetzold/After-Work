@@ -23,10 +23,15 @@
 		40283222270DFECD003F9AF8 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40283221270DFECD003F9AF8 /* FavoritesViewModel.swift */; };
 		40283224270E0473003F9AF8 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40283223270E0473003F9AF8 /* Font.swift */; };
 		40283226270E050D003F9AF8 /* Corner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40283225270E050D003F9AF8 /* Corner.swift */; };
+		4037A191271452E900617126 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4037A190271452E900617126 /* ExtensionString.swift */; };
 		403EAFB5270F555B00D697F0 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EAFB4270F555B00D697F0 /* Animations.swift */; };
 		403EAFB7270F561F00D697F0 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403EAFB6270F561F00D697F0 /* Transitions.swift */; };
 		404C17EF270EEEFD0077DB5A /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404C17EE270EEEFD0077DB5A /* ActivityViewController.swift */; };
-		406CFC87270C43A700D1BD07 /* Spotr_After_WorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406CFC86270C43A700D1BD07 /* Spotr_After_WorkApp.swift */; };
+		405271CC27106CE000A7F508 /* API.json in Resources */ = {isa = PBXBuildFile; fileRef = 405271CB27106CE000A7F508 /* API.json */; };
+		405271CE27106F9000A7F508 /* CocktailDBJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405271CD27106F9000A7F508 /* CocktailDBJSON.swift */; };
+		405271D0271071CB00A7F508 /* CocktailDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405271CF271071CB00A7F508 /* CocktailDBRequest.swift */; };
+		405271D22710749B00A7F508 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405271D12710749B00A7F508 /* NetworkSession.swift */; };
+		406CFC87270C43A700D1BD07 /* After_WorkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406CFC86270C43A700D1BD07 /* After_WorkApp.swift */; };
 		406CFC89270C43A700D1BD07 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406CFC88270C43A700D1BD07 /* ContentView.swift */; };
 		406CFC8B270C43A800D1BD07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406CFC8A270C43A800D1BD07 /* Assets.xcassets */; };
 		406CFC8E270C43A800D1BD07 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 406CFC8D270C43A800D1BD07 /* Preview Assets.xcassets */; };
@@ -67,8 +72,8 @@
 		40120AB5270E10B600539BA2 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		40120AB7270E10BD00539BA2 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		40120AB9270E10C600539BA2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		40120ABB270E10F300539BA2 /* Spotr-After-Work-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Spotr-After-Work-Info.plist"; path = "Spotr After-Work/Supporting Files/Spotr-After-Work-Info.plist"; sourceTree = SOURCE_ROOT; };
 		40120ABC270E124800539BA2 /* Opacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opacity.swift; sourceTree = "<group>"; };
+		4021D6C0271491E90032C7E8 /* After-Work-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "After-Work-Info.plist"; sourceTree = "<group>"; };
 		4028320E270DE044003F9AF8 /* ExtensionUIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIDevice.swift; sourceTree = "<group>"; };
 		40283211270DE4F4003F9AF8 /* ShowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageView.swift; sourceTree = "<group>"; };
 		40283214270DEE02003F9AF8 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
@@ -78,15 +83,20 @@
 		40283221270DFECD003F9AF8 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		40283223270E0473003F9AF8 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		40283225270E050D003F9AF8 /* Corner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Corner.swift; sourceTree = "<group>"; };
+		4037A190271452E900617126 /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 		403EAFB4270F555B00D697F0 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		403EAFB6270F561F00D697F0 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		404C17EE270EEEFD0077DB5A /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		406CFC83270C43A700D1BD07 /* Spotr After-Work.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spotr After-Work.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		406CFC86270C43A700D1BD07 /* Spotr_After_WorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotr_After_WorkApp.swift; sourceTree = "<group>"; };
+		405271CB27106CE000A7F508 /* API.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = API.json; sourceTree = "<group>"; };
+		405271CD27106F9000A7F508 /* CocktailDBJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDBJSON.swift; sourceTree = "<group>"; };
+		405271CF271071CB00A7F508 /* CocktailDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDBRequest.swift; sourceTree = "<group>"; };
+		405271D12710749B00A7F508 /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		406CFC83270C43A700D1BD07 /* After-Work.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "After-Work.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		406CFC86270C43A700D1BD07 /* After_WorkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = After_WorkApp.swift; sourceTree = "<group>"; };
 		406CFC88270C43A700D1BD07 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		406CFC8A270C43A800D1BD07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		406CFC8D270C43A800D1BD07 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		406CFC93270C43A900D1BD07 /* Spotr After-WorkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Spotr After-WorkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		406CFC93270C43A900D1BD07 /* After-WorkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "After-WorkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		406CFCB4270C440400D1BD07 /* CocktailsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsJSON.swift; sourceTree = "<group>"; };
 		406CFCB6270C44F900D1BD07 /* Cocktail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Cocktail.json; sourceTree = "<group>"; };
 		406CFCB7270C454F00D1BD07 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
@@ -157,6 +167,10 @@
 				406CFCB6270C44F900D1BD07 /* Cocktail.json */,
 				406CFCB4270C440400D1BD07 /* CocktailsJSON.swift */,
 				406CFCB9270C4A2900D1BD07 /* APIService.swift */,
+				405271CB27106CE000A7F508 /* API.json */,
+				405271CD27106F9000A7F508 /* CocktailDBJSON.swift */,
+				405271CF271071CB00A7F508 /* CocktailDBRequest.swift */,
+				405271D12710749B00A7F508 /* NetworkSession.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -215,8 +229,8 @@
 		406CFC7A270C43A700D1BD07 = {
 			isa = PBXGroup;
 			children = (
-				406CFC85270C43A700D1BD07 /* Spotr After-Work */,
-				406CFC96270C43A900D1BD07 /* Spotr After-WorkTests */,
+				406CFC85270C43A700D1BD07 /* After-Work */,
+				406CFC96270C43A900D1BD07 /* After-WorkTests */,
 				406CFC84270C43A700D1BD07 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -224,13 +238,13 @@
 		406CFC84270C43A700D1BD07 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				406CFC83270C43A700D1BD07 /* Spotr After-Work.app */,
-				406CFC93270C43A900D1BD07 /* Spotr After-WorkTests.xctest */,
+				406CFC83270C43A700D1BD07 /* After-Work.app */,
+				406CFC93270C43A900D1BD07 /* After-WorkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		406CFC85270C43A700D1BD07 /* Spotr After-Work */ = {
+		406CFC85270C43A700D1BD07 /* After-Work */ = {
 			isa = PBXGroup;
 			children = (
 				406CFCB0270C43C300D1BD07 /* Supporting Files */,
@@ -240,7 +254,7 @@
 				406CFCB1270C43CC00D1BD07 /* View */,
 				406CFC8C270C43A800D1BD07 /* Preview Content */,
 			);
-			path = "Spotr After-Work";
+			path = "After-Work";
 			sourceTree = "<group>";
 		};
 		406CFC8C270C43A800D1BD07 /* Preview Content */ = {
@@ -251,23 +265,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		406CFC96270C43A900D1BD07 /* Spotr After-WorkTests */ = {
+		406CFC96270C43A900D1BD07 /* After-WorkTests */ = {
 			isa = PBXGroup;
 			children = (
 				40283218270DF02C003F9AF8 /* Utils */,
 				40283214270DEE02003F9AF8 /* APIServiceTests.swift */,
 				4028321C270DF10E003F9AF8 /* CoreDataHelperTests.swift */,
 			);
-			path = "Spotr After-WorkTests";
+			path = "After-WorkTests";
 			sourceTree = "<group>";
 		};
 		406CFCB0270C43C300D1BD07 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				40120AB2270E109D00539BA2 /* Fonts */,
-				406CFC86270C43A700D1BD07 /* Spotr_After_WorkApp.swift */,
+				406CFC86270C43A700D1BD07 /* After_WorkApp.swift */,
 				406CFC8A270C43A800D1BD07 /* Assets.xcassets */,
-				40120ABB270E10F300539BA2 /* Spotr-After-Work-Info.plist */,
+				4021D6C0271491E90032C7E8 /* After-Work-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -296,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				40B1032E270C963E00A95D50 /* Cocktail.swift */,
+				4037A190271452E900617126 /* ExtensionString.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,9 +331,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		406CFC82270C43A700D1BD07 /* Spotr After-Work */ = {
+		406CFC82270C43A700D1BD07 /* After-Work */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 406CFCA7270C43A900D1BD07 /* Build configuration list for PBXNativeTarget "Spotr After-Work" */;
+			buildConfigurationList = 406CFCA7270C43A900D1BD07 /* Build configuration list for PBXNativeTarget "After-Work" */;
 			buildPhases = (
 				406CFC7F270C43A700D1BD07 /* Sources */,
 				406CFC80270C43A700D1BD07 /* Frameworks */,
@@ -328,14 +343,14 @@
 			);
 			dependencies = (
 			);
-			name = "Spotr After-Work";
+			name = "After-Work";
 			productName = "Spotr After-Work";
-			productReference = 406CFC83270C43A700D1BD07 /* Spotr After-Work.app */;
+			productReference = 406CFC83270C43A700D1BD07 /* After-Work.app */;
 			productType = "com.apple.product-type.application";
 		};
-		406CFC92270C43A900D1BD07 /* Spotr After-WorkTests */ = {
+		406CFC92270C43A900D1BD07 /* After-WorkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 406CFCAA270C43A900D1BD07 /* Build configuration list for PBXNativeTarget "Spotr After-WorkTests" */;
+			buildConfigurationList = 406CFCAA270C43A900D1BD07 /* Build configuration list for PBXNativeTarget "After-WorkTests" */;
 			buildPhases = (
 				406CFC8F270C43A900D1BD07 /* Sources */,
 				406CFC90270C43A900D1BD07 /* Frameworks */,
@@ -346,9 +361,9 @@
 			dependencies = (
 				406CFC95270C43A900D1BD07 /* PBXTargetDependency */,
 			);
-			name = "Spotr After-WorkTests";
+			name = "After-WorkTests";
 			productName = "Spotr After-WorkTests";
-			productReference = 406CFC93270C43A900D1BD07 /* Spotr After-WorkTests.xctest */;
+			productReference = 406CFC93270C43A900D1BD07 /* After-WorkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -370,7 +385,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 406CFC7E270C43A700D1BD07 /* Build configuration list for PBXProject "Spotr After-Work" */;
+			buildConfigurationList = 406CFC7E270C43A700D1BD07 /* Build configuration list for PBXProject "After-Work" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -383,8 +398,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				406CFC82270C43A700D1BD07 /* Spotr After-Work */,
-				406CFC92270C43A900D1BD07 /* Spotr After-WorkTests */,
+				406CFC82270C43A700D1BD07 /* After-Work */,
+				406CFC92270C43A900D1BD07 /* After-WorkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -394,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				405271CC27106CE000A7F508 /* API.json in Resources */,
 				40120ABA270E10C600539BA2 /* Roboto-Medium.ttf in Resources */,
 				40120AB8270E10BD00539BA2 /* Roboto-Bold.ttf in Resources */,
 				40120AB6270E10B600539BA2 /* Roboto-Regular.ttf in Resources */,
@@ -424,13 +440,16 @@
 				40AABB84270DB89F0090469D /* DetailText.swift in Sources */,
 				40B10335270C9CD500A95D50 /* CellText.swift in Sources */,
 				40B1037C270CD6B800A95D50 /* Cocktails.xcdatamodeld in Sources */,
+				405271D22710749B00A7F508 /* NetworkSession.swift in Sources */,
 				40B10377270CD57500A95D50 /* Persistence.swift in Sources */,
 				404C17EF270EEEFD0077DB5A /* ActivityViewController.swift in Sources */,
 				40AABB82270DA5B60090469D /* DetailCocktailView.swift in Sources */,
 				40283222270DFECD003F9AF8 /* FavoritesViewModel.swift in Sources */,
 				40B1032F270C963E00A95D50 /* Cocktail.swift in Sources */,
+				405271CE27106F9000A7F508 /* CocktailDBJSON.swift in Sources */,
 				406CFCC0270C531600D1BD07 /* ListPickerView.swift in Sources */,
 				40B10379270CD65D00A95D50 /* CoreDataHelper.swift in Sources */,
+				405271D0271071CB00A7F508 /* CocktailDBRequest.swift in Sources */,
 				40B1032D270C958A00A95D50 /* CocktailCell.swift in Sources */,
 				40283212270DE4F4003F9AF8 /* ShowImageView.swift in Sources */,
 				403EAFB7270F561F00D697F0 /* Transitions.swift in Sources */,
@@ -441,13 +460,14 @@
 				406CFCBA270C4A2900D1BD07 /* APIService.swift in Sources */,
 				40B1037E270CD73100A95D50 /* FavoriteCocktail.swift in Sources */,
 				40120ABD270E124800539BA2 /* Opacity.swift in Sources */,
-				406CFC87270C43A700D1BD07 /* Spotr_After_WorkApp.swift in Sources */,
+				406CFC87270C43A700D1BD07 /* After_WorkApp.swift in Sources */,
 				40B1033A270CBF9E00A95D50 /* CocktailsList.swift in Sources */,
 				40283226270E050D003F9AF8 /* Corner.swift in Sources */,
 				406CFCB8270C454F00D1BD07 /* Icon.swift in Sources */,
 				40283224270E0473003F9AF8 /* Font.swift in Sources */,
 				40B10338270CBC4E00A95D50 /* CocktailsViewModel.swift in Sources */,
 				40B10333270C99CA00A95D50 /* CellImage.swift in Sources */,
+				4037A191271452E900617126 /* ExtensionString.swift in Sources */,
 				403EAFB5270F555B00D697F0 /* Animations.swift in Sources */,
 				406CFCC4270C603700D1BD07 /* TagText.swift in Sources */,
 				406CFCB5270C440400D1BD07 /* CocktailsJSON.swift in Sources */,
@@ -469,7 +489,7 @@
 /* Begin PBXTargetDependency section */
 		406CFC95270C43A900D1BD07 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 406CFC82270C43A700D1BD07 /* Spotr After-Work */;
+			target = 406CFC82270C43A700D1BD07 /* After-Work */;
 			targetProxy = 406CFC94270C43A900D1BD07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -598,11 +618,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Spotr After-Work/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"After-Work/Preview Content\"";
 				DEVELOPMENT_TEAM = 99934KCD3X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Spotr After-Work/Supporting Files/Spotr-After-Work-Info.plist";
+				INFOPLIST_FILE = "After-Work/Supporting Files/After-Work-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -616,7 +636,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.prismatic-apps.Spotr-After-Work";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prismatic-apps.After-Work";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -631,11 +651,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Spotr After-Work/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"After-Work/Preview Content\"";
 				DEVELOPMENT_TEAM = 99934KCD3X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Spotr After-Work/Supporting Files/Spotr-After-Work-Info.plist";
+				INFOPLIST_FILE = "After-Work/Supporting Files/After-Work-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -649,7 +669,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.prismatic-apps.Spotr-After-Work";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.prismatic-apps.After-Work";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -678,7 +698,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spotr After-Work.app/Spotr After-Work";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/After-Work.app/After-Work";
 			};
 			name = Debug;
 		};
@@ -703,14 +723,14 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spotr After-Work.app/Spotr After-Work";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/After-Work.app/After-Work";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		406CFC7E270C43A700D1BD07 /* Build configuration list for PBXProject "Spotr After-Work" */ = {
+		406CFC7E270C43A700D1BD07 /* Build configuration list for PBXProject "After-Work" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				406CFCA5270C43A900D1BD07 /* Debug */,
@@ -719,7 +739,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		406CFCA7270C43A900D1BD07 /* Build configuration list for PBXNativeTarget "Spotr After-Work" */ = {
+		406CFCA7270C43A900D1BD07 /* Build configuration list for PBXNativeTarget "After-Work" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				406CFCA8270C43A900D1BD07 /* Debug */,
@@ -728,7 +748,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		406CFCAA270C43A900D1BD07 /* Build configuration list for PBXNativeTarget "Spotr After-WorkTests" */ = {
+		406CFCAA270C43A900D1BD07 /* Build configuration list for PBXNativeTarget "After-WorkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				406CFCAB270C43A900D1BD07 /* Debug */,

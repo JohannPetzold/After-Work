@@ -23,7 +23,7 @@ struct CocktailsList: View {
                     }
                 }
             }
-            .transition(Transitions.showCell())
+//            .transition(Transitions.showCell())
         } else {
             VStack {
                 Spacer()

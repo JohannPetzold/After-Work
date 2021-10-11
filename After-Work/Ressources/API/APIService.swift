@@ -10,9 +10,11 @@ import Foundation
 class APIService {
     
     private var filename = "Cocktail"
+    private var session: NetworkSession = URLSession.shared
     
-    init(filename: String = "Cocktail") {
+    init(filename: String = "Cocktail", session: NetworkSession = URLSession.shared) {
         self.filename = filename
+        self.session = session
     }
     
     // Get cocktails from JSON file
@@ -41,10 +43,38 @@ class APIService {
         }
         return cocktails
     }
+    
+    func fetchRandomCocktail(urlString: String, completion: @escaping (Cocktail?, Error?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        session.loadUrlData(from: url) { data, _, _ in
+            guard let data = data else {
+                completion(nil, ServiceError.noData)
+                return
+            }
+            guard let cocktailJson = try? JSONDecoder().decode(CocktailDBJSON.self, from: data) else {
+                completion(nil, ServiceError.decodeFail)
+                return
+            }
+            guard let cocktail = self.convertDbCocktailFromJson(cocktailJson) else {
+                completion(nil, ServiceError.creationFail)
+                return
+            }
+            completion(cocktail, nil)
+        }
+    }
+    
+    private func convertDbCocktailFromJson(_ cocktailJson: CocktailDBJSON) -> Cocktail? {
+        guard let newCocktail = cocktailJson.drinks.first else { return nil }
+        let cocktail = Cocktail(drink: newCocktail)
+        return cocktail
+    }
 }
 
 enum ServiceError: Error {
     case badUrl
     case noData
     case decodeFail
+    case creationFail
 }

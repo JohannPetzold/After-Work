@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Spotr_After_Work
+@testable import After_Work
 
 class CoreDataHelperTests: XCTestCase {
     
