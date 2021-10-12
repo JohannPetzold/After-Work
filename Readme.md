@@ -16,8 +16,8 @@ Spotr After-Work is an iOS app for cocktails lovers: find the one that suits you
 
 ## API
 
-In this version, cocktails are load from a JSON file.
-Is it possible to enhance this app with access to TheCocktailDB API following this link: https://www.thecocktaildb.com/api.php
+In this version, cocktails are load randomly from TheCocktailDB API free version.
+https://www.thecocktaildb.com/api.php
 
 ## Features
 
@@ -30,4 +30,3 @@ Is it possible to enhance this app with access to TheCocktailDB API following th
 ## Launch
 
 This app use some animations which are visible on simulator or on real device, try them!
-Enjoy
