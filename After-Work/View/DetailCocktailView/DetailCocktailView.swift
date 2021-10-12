@@ -27,12 +27,11 @@ struct DetailCocktailView: View {
             ZStack(alignment: .top) {
                 Rectangle().foregroundColor(.white)
                 VStack {
-                    CellImage(imageName: $cocktail.name)
+                    CellImage(cocktail: $cocktail)
                         .matchedGeometryEffect(id: Animations.expandName(.image) + favoritesVM.animationId, in: expandCell)
                         .frame(height: geometry.size.height / 2.5)
-                        .clipped()
                         .onTapGesture {
-                            if UIImage(named: cocktail.name) != nil {
+                            if cocktail.image != nil, UIImage(data: cocktail.image!) != nil {
                                 showImage = true
                             }
                         }
@@ -43,8 +42,8 @@ struct DetailCocktailView: View {
                 VStack {
                     HStack {
                         RoundedButton(icon: .close, size: .small, shadow: false, largerTouch: 2) {
+                            favoritesVM.resetDetail()
                             withAnimation(Animations.expandCell()) {
-                                favoritesVM.resetDetail()
                                 showDetail.toggle()
                             }
                         }
@@ -105,7 +104,6 @@ struct DetailCocktailView: View {
                 if let newUrl = URL(string: cocktail.url) {
                     activityController = ActivityViewController(activityItems: [newUrl], isPresented: $presentActivity)
                 }
-                
             }
         }
     }

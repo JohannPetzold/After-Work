@@ -10,6 +10,7 @@ import SwiftUI
 struct CocktailCell: View {
     
     @Binding var cocktail: Cocktail
+    @StateObject var cocktailsVM: CocktailsViewModel
     @StateObject var favoritesVM: FavoritesViewModel
     let expandCell: Namespace.ID
     
@@ -18,15 +19,16 @@ struct CocktailCell: View {
     @State var isFavorite: Bool = false
     @State var startAnimation: Bool = false
     
-    private let imageHeight: CGFloat = 359
-    private let initialTextHeight: CGFloat = 199
+    private let imageHeight: CGFloat = 360
+    private let paddingText: CGFloat = 20
+    private let initialTextHeight: CGFloat = 200
     
     var body: some View {
         if favoritesVM.animationId != cocktail.id {
             VStack {
                 ZStack(alignment: .top) {
                     ZStack {
-                        CellImage(imageName: $cocktail.name)
+                        CellImage(cocktail: $cocktail)
                             .matchedGeometryEffect(id: Animations.expandName(.image) + cocktail.id, in: expandCell)
                             .frame(height: imageHeight)
                             .cornerRadius(Corner.defaultCorner())
@@ -69,7 +71,7 @@ struct CocktailCell: View {
                         Spacer()
                         CellText(showIngredient: $showIngredient, cocktail: $cocktail)
                             .matchedGeometryEffect(id: Animations.expandName(.text) + cocktail.id, in: expandCell)
-                            .padding(20)
+                            .padding(paddingText)
                             .offset(x: 0, y: showIngredient ? (CGFloat(cocktail.ingredients.count) * 5) : 0)
                             .onTapGesture {
                                 withAnimation(Animations.showIngredient()) {
@@ -103,9 +105,9 @@ struct CocktailCell_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            CocktailCell(cocktail: .constant(Cocktail.previewCocktail()), favoritesVM: FavoritesViewModel(), expandCell: previewId)
+            CocktailCell(cocktail: .constant(Cocktail.previewCocktail()), cocktailsVM: CocktailsViewModel(), favoritesVM: FavoritesViewModel(), expandCell: previewId)
                 .previewLayout(.fixed(width: 400, height: 400))
-            CocktailCell(cocktail: .constant(Cocktail.previewCocktail()), favoritesVM: FavoritesViewModel(), expandCell: previewId, showIngredient: true)
+            CocktailCell(cocktail: .constant(Cocktail.previewCocktail()), cocktailsVM: CocktailsViewModel(), favoritesVM: FavoritesViewModel(), expandCell: previewId, showIngredient: true)
                 .previewLayout(.fixed(width: 400, height: 600))
         }
     }

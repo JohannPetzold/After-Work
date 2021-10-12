@@ -31,12 +31,9 @@ struct ContentView: View {
                 ListPickerView(selection: $pickerSelection)
                     .padding(.horizontal)
                 if pickerSelection == 1 {
-                    CocktailsList(cocktails: $cocktailsVM.cocktails, pickerSelection: $pickerSelection, favoritesVM: favoritesVM, expandCell: expandCell)
+                    CocktailsList(cocktails: $cocktailsVM.cocktails, pickerSelection: $pickerSelection, cocktailsVM: cocktailsVM, favoritesVM: favoritesVM, expandCell: expandCell, showLoadMore: true)
                 } else {
-                    CocktailsList(cocktails: $favoritesVM.cocktails, pickerSelection: $pickerSelection, favoritesVM: favoritesVM, expandCell: expandCell)
-                        .onAppear {
-                            favoritesVM.loadCocktailsData()
-                        }
+                    CocktailsList(cocktails: $favoritesVM.cocktails, pickerSelection: $pickerSelection, cocktailsVM: cocktailsVM, favoritesVM: favoritesVM, expandCell: expandCell)
                 }
                 Spacer()
             }
@@ -44,13 +41,6 @@ struct ContentView: View {
             .edgesIgnoringSafeArea(.bottom)
             if favoritesVM.displayDetail {
                 DetailCocktailView(cocktail: $favoritesVM.detailCocktail, showDetail: $favoritesVM.displayDetail, favoritesVM: favoritesVM, expandCell: expandCell)
-            }
-        }
-        .onAppear {
-            cocktailsVM.loadCocktails { success in
-                if !success {
-                    displayError = true
-                }
             }
         }
     }
@@ -68,6 +58,5 @@ struct ContentView_Previews: PreviewProvider {
             ContentView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE (2nd generation)"))
         }
-        
     }
 }

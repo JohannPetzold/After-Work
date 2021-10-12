@@ -15,6 +15,8 @@ class FavoriteCocktail: NSManagedObject {
         self.id = cocktail.id
         self.name = cocktail.name
         self.url = cocktail.url
+        self.imageUrl = cocktail.imageUrl
+        self.image = cocktail.image
         self.ingredients = cocktail.ingredients.description.data(using: String.Encoding.utf16)
         self.tags = cocktail.tags.description.data(using: String.Encoding.utf16)
         self.recipe = cocktail.recipe

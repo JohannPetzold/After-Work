@@ -17,6 +17,7 @@ class Drink: Decodable {
     var strTags: String?
     var strCategory: String
     var strInstructions: String
+    var strDrinkThumb: String
     var strIngredient1: String?
     var strIngredient2: String?
     var strIngredient3: String?

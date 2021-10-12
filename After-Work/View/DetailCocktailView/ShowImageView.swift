@@ -18,7 +18,7 @@ struct ShowImageView: View {
                     .edgesIgnoringSafeArea(.all)
                 VStack {
                     Spacer()
-                    CellImage(imageName: $cocktail.name)
+                    CellImage(cocktail: $cocktail)
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(Corner.defaultCorner())
                     Spacer()

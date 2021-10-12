@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="20G165" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19197" systemVersion="21A5534d" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="FavoriteCocktail" representedClassName=".FavoriteCocktail" syncable="YES" codeGenerationType="category">
         <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="ingredients" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="recipe" optional="YES" attributeType="String"/>
@@ -9,6 +11,6 @@
         <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="FavoriteCocktail" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="FavoriteCocktail" positionX="-63" positionY="-18" width="128" height="149"/>
     </elements>
 </model>

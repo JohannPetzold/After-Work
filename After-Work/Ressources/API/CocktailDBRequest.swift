@@ -9,7 +9,7 @@ import Foundation
 
 class CocktailDBRequest {
     
-    private static var url = "www.thecocktaildb.com/api/json/v1"
+    private static var url = "https://www.thecocktaildb.com/api/json/v1"
     private static var apiKey = "1"
     
     enum RequestType: String {

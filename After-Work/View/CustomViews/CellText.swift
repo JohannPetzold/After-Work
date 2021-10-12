@@ -28,6 +28,7 @@ struct CellText: View {
                 Text(cocktail.name)
                     .font(.custom(Font.mediumFont(), size: Font.titleSize()))
                     .minimumScaleFactor(0.5)
+                    .lineLimit(1)
                     .foregroundColor(Colors.primary)
                 Spacer()
                 if !showDetail {
@@ -67,6 +68,12 @@ struct CellText: View {
 struct CellText_Previews: PreviewProvider {
     static var previews: some View {
         Group {
+            ZStack {
+                Rectangle().foregroundColor(.blue).frame(width: 450, height: 200)
+                CellText(showIngredient: .constant(false), cocktail: .constant(Cocktail.previewCocktail3()))
+                    .padding(.horizontal, 30)
+            }
+            .previewLayout(.fixed(width: 480, height: 300))
             ZStack {
                 Rectangle().foregroundColor(.blue).frame(width: 450, height: 200)
                 CellText(showIngredient: .constant(false), cocktail: .constant(Cocktail.previewCocktail()))

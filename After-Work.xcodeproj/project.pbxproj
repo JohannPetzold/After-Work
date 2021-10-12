@@ -12,6 +12,8 @@
 		40120AB8270E10BD00539BA2 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40120AB7270E10BD00539BA2 /* Roboto-Bold.ttf */; };
 		40120ABA270E10C600539BA2 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40120AB9270E10C600539BA2 /* Roboto-Medium.ttf */; };
 		40120ABD270E124800539BA2 /* Opacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40120ABC270E124800539BA2 /* Opacity.swift */; };
+		401CEC512714B92000BBAB51 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401CEC502714B92000BBAB51 /* ImageLoader.swift */; };
+		4021D6C3271499BA0032C7E8 /* DataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021D6C2271499BA0032C7E8 /* DataHelper.swift */; };
 		4028320F270DE044003F9AF8 /* ExtensionUIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4028320E270DE044003F9AF8 /* ExtensionUIDevice.swift */; };
 		40283212270DE4F4003F9AF8 /* ShowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40283211270DE4F4003F9AF8 /* ShowImageView.swift */; };
 		40283213270DEDE9003F9AF8 /* Cocktail.json in Resources */ = {isa = PBXBuildFile; fileRef = 406CFCB6270C44F900D1BD07 /* Cocktail.json */; };
@@ -73,7 +75,9 @@
 		40120AB7270E10BD00539BA2 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		40120AB9270E10C600539BA2 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		40120ABC270E124800539BA2 /* Opacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Opacity.swift; sourceTree = "<group>"; };
+		401CEC502714B92000BBAB51 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		4021D6C0271491E90032C7E8 /* After-Work-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "After-Work-Info.plist"; sourceTree = "<group>"; };
+		4021D6C2271499BA0032C7E8 /* DataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHelper.swift; sourceTree = "<group>"; };
 		4028320E270DE044003F9AF8 /* ExtensionUIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIDevice.swift; sourceTree = "<group>"; };
 		40283211270DE4F4003F9AF8 /* ShowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageView.swift; sourceTree = "<group>"; };
 		40283214270DEE02003F9AF8 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				405271CD27106F9000A7F508 /* CocktailDBJSON.swift */,
 				405271CF271071CB00A7F508 /* CocktailDBRequest.swift */,
 				405271D12710749B00A7F508 /* NetworkSession.swift */,
+				4021D6C2271499BA0032C7E8 /* DataHelper.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			children = (
 				40B10337270CBC4E00A95D50 /* CocktailsViewModel.swift */,
 				40283221270DFECD003F9AF8 /* FavoritesViewModel.swift */,
+				401CEC502714B92000BBAB51 /* ImageLoader.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -451,6 +457,7 @@
 				40B10379270CD65D00A95D50 /* CoreDataHelper.swift in Sources */,
 				405271D0271071CB00A7F508 /* CocktailDBRequest.swift in Sources */,
 				40B1032D270C958A00A95D50 /* CocktailCell.swift in Sources */,
+				401CEC512714B92000BBAB51 /* ImageLoader.swift in Sources */,
 				40283212270DE4F4003F9AF8 /* ShowImageView.swift in Sources */,
 				403EAFB7270F561F00D697F0 /* Transitions.swift in Sources */,
 				4028320F270DE044003F9AF8 /* ExtensionUIDevice.swift in Sources */,
@@ -461,6 +468,7 @@
 				40B1037E270CD73100A95D50 /* FavoriteCocktail.swift in Sources */,
 				40120ABD270E124800539BA2 /* Opacity.swift in Sources */,
 				406CFC87270C43A700D1BD07 /* After_WorkApp.swift in Sources */,
+				4021D6C3271499BA0032C7E8 /* DataHelper.swift in Sources */,
 				40B1033A270CBF9E00A95D50 /* CocktailsList.swift in Sources */,
 				40283226270E050D003F9AF8 /* Corner.swift in Sources */,
 				406CFCB8270C454F00D1BD07 /* Icon.swift in Sources */,

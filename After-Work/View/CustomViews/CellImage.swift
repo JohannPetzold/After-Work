@@ -10,19 +10,27 @@ import UIKit
 
 struct CellImage: View {
     
-    @Binding var imageName: String
+    @Binding var cocktail: Cocktail
+    
+    @StateObject var imageLoader = ImageLoaderService()
+    @State var image = UIImage()
     
     var body: some View {
-        if let loadImage = UIImage(named: imageName) {
+        ZStack {
+            Rectangle()
+                .foregroundColor(.gray)
             GeometryReader { geometry in
-                Image(uiImage: loadImage)
+                Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .clipped()
+                    .onReceive(imageLoader.$image) { image in
+                        self.image = image
+                    }
+                    .onAppear {
+                        imageLoader.loadCocktailImage(cocktail: cocktail)
+                    }
             }
-        } else {
-            Rectangle()
-                .foregroundColor(.gray)
         }
     }
 }
@@ -30,9 +38,9 @@ struct CellImage: View {
 struct CellImage_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CellImage(imageName: .constant("Mojito"))
+            CellImage(cocktail: .constant(Cocktail.previewCocktail()))
                 .previewLayout(.fixed(width: 300, height: 300))
-            CellImage(imageName: .constant(""))
+            CellImage(cocktail: .constant(Cocktail()))
                 .previewLayout(.fixed(width: 300, height: 250))
         }
     }

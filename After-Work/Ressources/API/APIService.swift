@@ -44,8 +44,8 @@ class APIService {
         return cocktails
     }
     
-    func fetchRandomCocktail(urlString: String, completion: @escaping (Cocktail?, Error?) -> Void) {
-        guard let url = URL(string: urlString) else {
+    func fetchRandomCocktail(completion: @escaping (Cocktail?, Error?) -> Void) {
+        guard let url = URL(string: CocktailDBRequest.randomCocktail()) else {
             return
         }
         session.loadUrlData(from: url) { data, _, _ in

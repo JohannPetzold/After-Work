@@ -6,20 +6,24 @@
 //
 
 import Foundation
+import UIKit
 
 class Cocktail {
     
     var id: String
     var name: String
     var url: String = ""
+    var imageUrl: String
+    var image: Data? = nil
     var ingredients: [String] = []
     var tags: [String] = []
     var recipe: String
     
-    init(id: String = "", name: String = "", url: String = "", ingredients: [String] = [], tags: [String] = [], recipe: String = "") {
+    init(id: String = "", name: String = "", url: String = "", imageUrl: String = "", ingredients: [String] = [], tags: [String] = [], recipe: String = "") {
         self.id = id
         self.name = name
         self.url = url
+        self.imageUrl = imageUrl
         self.ingredients = ingredients
         self.tags = tags
         self.recipe = recipe
@@ -30,6 +34,7 @@ class Cocktail {
         self.id = cocktailJson.id
         self.name = cocktailJson.name
         self.url = cocktailJson.url
+        self.imageUrl = ""
         self.ingredients = cocktailJson.ingredients
         self.tags = cocktailJson.tags
         self.recipe = cocktailJson.recipe
@@ -40,6 +45,8 @@ class Cocktail {
         self.id = favoriteCocktail.id ?? ""
         self.name = favoriteCocktail.name ?? ""
         self.url = favoriteCocktail.url ?? ""
+        self.imageUrl = favoriteCocktail.imageUrl ?? ""
+        self.image = favoriteCocktail.image ?? nil
         if let favoriteIngredients = favoriteCocktail.ingredients {
             if let newIngredients = try? JSONDecoder().decode([String].self, from: favoriteIngredients) {
                 self.ingredients = newIngredients
@@ -58,6 +65,7 @@ class Cocktail {
         self.id = drink.idDrink
         self.name = drink.strDrink
         self.recipe = drink.strInstructions
+        self.imageUrl = drink.strDrinkThumb
         self.url = getCocktailUrl(id: drink.idDrink, name: drink.strDrink)
         self.ingredients = getCocktailIngredients(from: drink)
         self.tags = getCocktailTags(tags: drink.strTags)
@@ -201,6 +209,9 @@ extension Cocktail {
             ingredients: ["2-3 oz Light rum", "Juice of 1 lime", "2 tsp Sugar", "2-4 Mint", "Soda water"],
             tags: ["CONTEMPORARYCLASSIC", "VEGAN"],
             recipe: "Muddle mint leaves with sugar and lime juice.\nAdd a splash of soda water and fill the glass with cracked ice.\nPour the rum and top with soda water.\nGarnish and serve with straw.")
+        if let image = UIImage(named: "Mojito") {
+            cocktail.image = image.jpegData(compressionQuality: 1)
+        }
         return cocktail
     }
     
@@ -211,6 +222,17 @@ extension Cocktail {
             url: "https://www.thecocktaildb.com/drink/178354-Pink-Moon",
             ingredients: ["2-3 oz Light rum", "Juice of 1 lime", "2 tsp Sugar", "2-4 Mint", "Soda water"],
             tags: ["CONTEMPORARYCLASSIC", "VEGAN"],
+            recipe: "Muddle mint leaves with sugar and lime juice.\nAdd a splash of soda water and fill the glass with cracked ice.\nPour the rum and top with soda water.\nGarnish and serve with straw.")
+        return cocktail
+    }
+    
+    static func previewCocktail3() -> Cocktail {
+        let cocktail = Cocktail(
+            id: "178354",
+            name: "Pink Moon",
+            url: "https://www.thecocktaildb.com/drink/178354-Pink-Moon",
+            ingredients: ["2-3 oz Light rum", "Juice of 1 lime", "2 tsp Sugar", "2-4 Mint", "Soda water"],
+            tags: [],
             recipe: "Muddle mint leaves with sugar and lime juice.\nAdd a splash of soda water and fill the glass with cracked ice.\nPour the rum and top with soda water.\nGarnish and serve with straw.")
         return cocktail
     }
