@@ -1,6 +1,6 @@
-# Spotr After-Work - Find best cocktails
+# After-Work - Find best cocktails
 
-Spotr After-Work is an iOS app for cocktails lovers: find the one that suits you and keep it warm in favorites.
+After-Work is an iOS app for cocktails lovers: find the one that suits you and keep it warm in favorites.
 
 ## Technologies
 
